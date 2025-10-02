@@ -12,28 +12,23 @@
       rel="stylesheet"
     />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="birthday-letter.css" />
-    <title>Happy Birthday, My Love!</title>
+    <title>Happy Birthday, Tita!</title>
   </head>
 
   <body data-bs-theme="dark" class="letter-closed">
+    <!-- Petal background -->
+    <div id="petal-field" aria-hidden="true"></div>
+
     <div class="bg-animated"></div>
     <div class="bg-hearts"></div>
     <div class="bg-overlay"></div>
 
     <!-- Stage -->
-    <div
-      class="min-vh-100 d-flex flex-column align-items-center justify-content-center text-center position-relative"
-    >
+    <div class="min-vh-100 d-flex flex-column align-items-center justify-content-center text-center position-relative">
       <span class="instruction fw-semibold">Click the heart!</span>
 
       <div class="container">
@@ -52,88 +47,48 @@
         <div class="letter-wrap">
           <div class="message">
             <h1 style="font-family: Cinzel, serif; letter-spacing: 1.2px;">
-              My Dearest Love,
+              Dearest Tita,
             </h1>
 
             <p class="text-start" style="max-width: 800px; margin: 0 auto;">
-              Happy, happy birthday to the man who has captured my whole heart.
-              On this special day, I just want to pour out everything I feel for
-              you, because you deserve to know the depth of my love and
-              gratitude.
-              <br /><br />
-              Thank you — for loving me in ways I never imagined possible, for
-              supporting me even when times get hard, for making me feel safe
-              even from miles away. I am so blessed, so incredibly lucky, that
-              God brought you into my life. You are not just a chapter in my
-              story — you are the most beautiful part of it, the one I never
-              want to end.
-              <br /><br />
-              Even though distance stands between us right now, my heart has
-              never felt closer to anyone than it does to you. I believe with
-              every beat of my heart that we can overcome this. One day, all
-              these lonely nights and longing days will be worth it, because
-              they will lead us to the moment when I can finally hold you again.
-              That day will come, and when it does, I will never want to let go.
-              <br /><br />
-              Let us keep holding on to our trust, our faith, and our love.
-              Always remember — God is here, watching over us, guiding our steps
-              until we meet again. He has written our love story, and no
-              distance, no obstacle, can change that. You are the first and only
-              man I have ever truly loved, and I promise you will be the last.
-              My love for you is forever, unchanging, and growing stronger each
-              day.
-              <br /><br />
-              On your birthday, my biggest wish is for you to succeed in all the
-              dreams you carry in your heart. I pray you find happiness, peace,
-              and fulfillment in everything you do. I will always be here,
-              standing beside you in spirit, cheering for you from afar. I am
-              proud of you in every way, and I believe in you more than you will
-              ever know.
-              <br /><br />
-              I love you so deeply that even the longest words in the dictionary
-              feel too small to hold my feelings. I miss you with every breath,
-              every sunrise, and every star-filled night. I long for the day I
-              can finally welcome you here in the Philippines — to see you walk
-              towards me, to feel your arms wrap around me, to hear your voice
-              not through a phone, but right beside my ear. I imagine it over
-              and over, and that hope keeps me going.
-              <br /><br />
-              Until that moment, please carry my love with you wherever you go.
-              You are my heart, my joy, my safe place, my forever. I will wait
-              for you — with love that never fades, with faith that never
-              breaks, and with the unshakable hope that soon, our "goodbyes"
-              will turn into "welcome home."
-              <br /><br />
-              Happy birthday, my love. You are my always and my forever.
+              Maligayang kaarawan po! 🎉<br /><br />
+              Nawa’y maging espesyal ang araw na ito, puno ng pagmamahal mula sa inyong pamilya at mga kaibigan. Salamat po sa inyong kabaitan, sa mga simpleng
+              ngiti at alaga na hindi nakakalimutan. Isa kayong inspirasyon bilang isang ina at bilang isang mabuting tao. <br /><br />
+              Hiling ko po ang patuloy na kalusugan, kapayapaan ng isip, at mas marami pang taong puno ng saya. Sana’y maging taon ng bagong biyaya at
+              pagkakataon ang susunod na yugto ng inyong buhay. <br /><br />
+              Happy birthday po, Tita! 💐
             </p>
 
             <!-- Featured photo -->
             <figure class="my-4">
               <img
-                src="images/fav1.jpg"
+                src="tita-main.png"
                 class="img-fluid rounded shadow-sm d-block mx-auto"
-                alt="My favorite photo of us"
+                alt="Tita's Photo"
                 style="max-height: 460px; object-fit: cover;"
               />
               <figcaption class="text-center text-muted mt-2">
-                My favorite photo of us
+                Celebrating you on your special day ✨
               </figcaption>
             </figure>
 
             <!-- Gallery -->
             <h2 class="mt-5 mb-3" style="font-family: 'DM Serif Display', serif;">
-              Our Moments
+              Family Moments
             </h2>
             <div id="gallery" class="row g-3 justify-content-center"></div>
 
             <div class="sincere mt-5">
-              <p style="font-weight: bold">With all my love,</p>
-              <p><i>— Yours</i></p>
+              <p style="font-weight: bold">With respect and warm wishes,</p>
+              <p><i>— Rasty</i></p>
             </div>
           </div>
-        </div><!-- /letter-wrap -->
-      </div><!-- /container -->
-    </div><!-- /stage -->
+        </div>
+        <!-- /letter-wrap -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /stage -->
 
     <!-- Background music -->
     <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
@@ -150,31 +105,51 @@
     </button>
 
     <!-- Scripts -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="jquery.js"></script>
     <script src="jquery2.1.js"></script>
     <script defer src="birthday-letter.js"></script>
 
-    <!-- Inline gallery builder: change extension to .png if needed -->
+    <!-- Gallery builder -->
     <script>
-      // Build gallery from fav1..fav11 in /images
       (function () {
-        const exts = ".jpg"; // change to ".png" if your files are PNG
-        const files = Array.from({ length: 11 }, (_, i) => `images/fav${i + 1}${exts}`);
+        const files = ["tita1.1.png", "tita3.jpg", "tiuta2.2.png"];
         const gallery = document.getElementById("gallery");
         files.forEach((src, idx) => {
           const col = document.createElement("div");
           col.className = "col-6 col-md-4 col-lg-3";
           col.innerHTML = `
             <div class="card bg-dark border-0 shadow-sm h-100">
-              <img src="${src}" class="card-img-top rounded" alt="Favorite ${idx + 1}" style="object-fit: cover; height: 220px;">
+              <img src="${src}" class="card-img-top rounded" alt="Tita ${idx + 1}" style="object-fit: cover; height: 220px;">
             </div>`;
           gallery.appendChild(col);
         });
       })();
+    </script>
+
+    <!-- Endless flower petals engine -->
+    <script>
+      (function(){
+  const field = document.getElementById("petal-field");
+  const EMOJIS = ["🌸","💖","🌷","✨","🌼"];
+  const COUNT  = 40;
+
+  function rand(min, max){ return Math.random() * (max - min) + min; }
+
+  function spawnPetal(){
+    const el = document.createElement("div");
+    el.className = "petal";
+    el.style.left = rand(0, 100) + "vw";
+    el.style.setProperty("--size", rand(16, 28) + "px");
+    el.style.setProperty("--dur", rand(14, 24) + "s");
+    el.style.setProperty("--delay", rand(0, 12) + "s");
+    el.style.setProperty("--sway", rand(-30, 30) + "vw");
+    el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+    field.appendChild(el);
+  }
+
+  for (let i=0; i<COUNT; i++) spawnPetal();
+})();
     </script>
   </body>
 </html>

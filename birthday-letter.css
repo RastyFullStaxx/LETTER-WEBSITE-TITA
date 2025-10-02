@@ -7,6 +7,31 @@ body { margin: 0; background:#0b0b0c; color:#f7f7f7; }
 h1, p { font-family: "Quicksand"; font-optical-sizing: auto; }
 h1 { font-weight: 200; }
 
+#petal-field {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2; /* sit above overlays but behind heart/message */
+}
+
+.petal {
+  position: absolute;
+  top: -10vh;
+  font-size: var(--size, 18px);
+  opacity: 0;
+  animation: petal-flow var(--dur, 18s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes petal-flow {
+  0%   { transform: translate(0, -10vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translate(var(--sway, 0vw), 50vh) rotate(180deg); opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(var(--sway, 0vw), 110vh) rotate(360deg); opacity: 0; }
+}
+
+
 /*===========================================
 INSTRUCTION TEXT
 ===========================================*/
