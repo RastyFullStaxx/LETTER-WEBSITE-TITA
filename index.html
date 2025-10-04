@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Tita!</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,15 +15,46 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="birthday-letter.css" />
-    <title>Happy Birthday, Tita!</title>
+
+    <!-- Extra Gallery Style -->
+    <style>
+      .gallery-grid {
+        column-count: 2;
+        column-gap: 1rem;
+      }
+      @media (min-width: 768px) {
+        .gallery-grid { column-count: 3; }
+      }
+      @media (min-width: 1200px) {
+        .gallery-grid { column-count: 4; }
+      }
+      .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.5s ease, box-shadow 0.4s ease;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease, filter 0.5s ease;
+        border-radius: 10px;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+      }
+      .gallery-item:hover {
+        box-shadow: 0 8px 30px rgba(255, 150, 180, 0.25);
+      }
+    </style>
   </head>
 
   <body data-bs-theme="dark" class="letter-closed">
-    <!-- Petal background -->
     <div id="petal-field" aria-hidden="true"></div>
-
     <div class="bg-animated"></div>
     <div class="bg-hearts"></div>
     <div class="bg-overlay"></div>
@@ -46,37 +78,25 @@
 
         <div class="letter-wrap">
           <div class="message">
-            <h1 style="font-family: Cinzel, serif; letter-spacing: 1.2px;">
-              Dearest Tita,
-            </h1>
+            <h1 style="font-family: Cinzel, serif; letter-spacing: 1.2px;">Dearest Tita,</h1>
 
             <p class="text-start" style="max-width: 800px; margin: 0 auto;">
               Maligayang kaarawan po! 🎉<br /><br />
-              Nawa’y maging espesyal ang araw na ito, puno ng pagmamahal mula sa inyong pamilya at mga kaibigan. Salamat po sa inyong kabaitan, sa mga simpleng
-              ngiti at alaga na hindi nakakalimutan. Isa kayong inspirasyon bilang isang ina at bilang isang mabuting tao. <br /><br />
-              Hiling ko po ang patuloy na kalusugan, kapayapaan ng isip, at mas marami pang taong puno ng saya. Sana’y maging taon ng bagong biyaya at
-              pagkakataon ang susunod na yugto ng inyong buhay. <br /><br />
+              Nawa’y maging espesyal ang araw na ito, puno ng pagmamahal mula sa inyong pamilya at mga kaibigan.
+              Salamat po sa inyong kabaitan, sa mga simpleng ngiti at alaga na hindi nakakalimutan.
+              Isa kayong inspirasyon bilang isang ina at bilang isang mabuting tao. <br /><br />
+              Hiling ko po ang patuloy na kalusugan, kapayapaan ng isip, at mas marami pang taong puno ng saya.
+              Sana’y maging taon ng bagong biyaya at pagkakataon ang susunod na yugto ng inyong buhay. <br /><br />
               Happy birthday po, Tita! 💐
             </p>
 
-            <!-- Featured photo -->
             <figure class="my-4">
-              <img
-                src="tita-main.png"
-                class="img-fluid rounded shadow-sm d-block mx-auto"
-                alt="Tita's Photo"
-                style="max-height: 460px; object-fit: cover;"
-              />
-              <figcaption class="text-center text-muted mt-2">
-                Celebrating you on your special day ✨
-              </figcaption>
+              <img src="tita-main.png" class="img-fluid rounded shadow-sm d-block mx-auto" alt="Tita's Photo" style="max-height: 460px; object-fit: cover;" />
+              <figcaption class="text-center text-muted mt-2">Celebrating you on your special day ✨</figcaption>
             </figure>
 
-            <!-- Gallery -->
-            <h2 class="mt-5 mb-3" style="font-family: 'DM Serif Display', serif;">
-              Family Moments
-            </h2>
-            <div id="gallery" class="row g-3 justify-content-center"></div>
+            <h2 class="mt-5 mb-3" style="font-family: 'DM Serif Display', serif;">Family Moments</h2>
+            <div id="gallery" class="gallery-grid"></div>
 
             <div class="sincere mt-5">
               <p style="font-weight: bold">With respect and warm wishes,</p>
@@ -84,11 +104,8 @@
             </div>
           </div>
         </div>
-        <!-- /letter-wrap -->
       </div>
-      <!-- /container -->
     </div>
-    <!-- /stage -->
 
     <!-- Background music -->
     <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
@@ -110,46 +127,44 @@
     <script src="jquery2.1.js"></script>
     <script defer src="birthday-letter.js"></script>
 
-    <!-- Gallery builder -->
+    <!-- Gallery Builder -->
     <script>
       (function () {
-        const files = ["tita1.1.png", "tita3.jpg", "tiuta2.2.png"];
+        const files = [
+          "tita1.1.png", "tita3.jpg", "tiuta2.2.png",
+          "newtita1.jpg", "newtita2.jpg", "newtita3.jpg",
+          "newtita4.jpg", "newtita5.jpg", "tita-main.png"
+        ];
         const gallery = document.getElementById("gallery");
         files.forEach((src, idx) => {
-          const col = document.createElement("div");
-          col.className = "col-6 col-md-4 col-lg-3";
-          col.innerHTML = `
-            <div class="card bg-dark border-0 shadow-sm h-100">
-              <img src="${src}" class="card-img-top rounded" alt="Tita ${idx + 1}" style="object-fit: cover; height: 220px;">
-            </div>`;
-          gallery.appendChild(col);
+          const div = document.createElement("div");
+          div.className = "gallery-item";
+          div.innerHTML = `<img src="${src}" alt="Memory ${idx + 1}" loading="lazy" />`;
+          gallery.appendChild(div);
         });
       })();
     </script>
 
-    <!-- Endless flower petals engine -->
+    <!-- Endless Flower Petals -->
     <script>
       (function(){
-  const field = document.getElementById("petal-field");
-  const EMOJIS = ["🌸","💖","🌷","✨","🌼"];
-  const COUNT  = 40;
-
-  function rand(min, max){ return Math.random() * (max - min) + min; }
-
-  function spawnPetal(){
-    const el = document.createElement("div");
-    el.className = "petal";
-    el.style.left = rand(0, 100) + "vw";
-    el.style.setProperty("--size", rand(16, 28) + "px");
-    el.style.setProperty("--dur", rand(14, 24) + "s");
-    el.style.setProperty("--delay", rand(0, 12) + "s");
-    el.style.setProperty("--sway", rand(-30, 30) + "vw");
-    el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-    field.appendChild(el);
-  }
-
-  for (let i=0; i<COUNT; i++) spawnPetal();
-})();
+        const field = document.getElementById("petal-field");
+        const EMOJIS = ["🌸","💖","🌷","✨","🌼"];
+        const COUNT  = 40;
+        function rand(min, max){ return Math.random() * (max - min) + min; }
+        function spawnPetal(){
+          const el = document.createElement("div");
+          el.className = "petal";
+          el.style.left = rand(0, 100) + "vw";
+          el.style.setProperty("--size", rand(16, 28) + "px");
+          el.style.setProperty("--dur", rand(14, 24) + "s");
+          el.style.setProperty("--delay", rand(0, 12) + "s");
+          el.style.setProperty("--sway", rand(-30, 30) + "vw");
+          el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+          field.appendChild(el);
+        }
+        for (let i=0; i<COUNT; i++) spawnPetal();
+      })();
     </script>
   </body>
 </html>
